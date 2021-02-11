@@ -1,7 +1,7 @@
 package jpabook.jpashop.service;
 
 import static org.assertj.core.api.Assertions.fail;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import javax.persistence.EntityManager;
 
