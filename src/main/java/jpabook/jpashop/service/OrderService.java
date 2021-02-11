@@ -21,7 +21,7 @@ public class OrderService {
 	private final OrderRepository orderRepository;
 	private final MemberRepository memberRepository;
 	private final ItemRepository itemRepository;
-	// ÁÖ¹®
+	// ì£¼ë¬¸
 
 	@Transactional
 	public Long order(Long memberId, Long itemId, int count) {
@@ -39,16 +39,16 @@ public class OrderService {
 
 		return order.getId();
 	}
-	// Ãë¼Ò
+	// ì·¨ì†Œ
 
 	@Transactional
 	public void cancelOrder(Long orderId) {
 		Order order = orderRepository.findOne(orderId);
-		// ÁÖ¹® Ãë¼Ò
+		// ì£¼ë¬¸ ì·¨ì†Œ
 		order.cancel();
 	}
 
-	// °Ë»ö
+	// ê²€ìƒ‰
 	// public List<Order> findorders(OrderSearch orderSearch) {
 	// }
 }

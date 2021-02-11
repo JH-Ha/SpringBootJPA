@@ -17,7 +17,7 @@ public class MemberService {
 	private final MemberRepository memberRepository;
 
 	/*
-	 * È¸¿ø °¡ÀÔ
+	 * íšŒì› ê°€ì…
 	 */
 	@Transactional
 	public Long join(Member member) {
@@ -25,13 +25,13 @@ public class MemberService {
 		memberRepository.save(member);
 		return member.getId();
 	}
-	// È¸¿ø ÀüÃ¼ Á¶È¸
+	// íšŒì› ì „ì²´ ì¡°íšŒ
 
 	private void validateDuplicateMember(Member member) {
 		// EXCEPTION
 		List<Member> findMembers = memberRepository.findByName(member.getName());
 		if (!findMembers.isEmpty()) {
-			throw new IllegalStateException("ÀÌ¹Ì Á¸ÀçÇÏ´Â È¸¿øÀÔ´Ï´Ù.");
+			throw new IllegalStateException("ì´ë¯¸ ì¡´ì¬í•˜ëŠ” íšŒì›ì…ë‹ˆë‹¤.");
 		}
 	}
 

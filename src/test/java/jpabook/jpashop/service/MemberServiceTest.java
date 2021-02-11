@@ -31,7 +31,7 @@ public class MemberServiceTest {
 	EntityManager em;
 
 	@Test
-	public void È¸¿ø°¡ÀÔ() {
+	public void íšŒì›ê°€ì…() {
 		// given
 		Member member = new Member();
 		member.setName("kim");
@@ -44,7 +44,7 @@ public class MemberServiceTest {
 	}
 
 	@Test(expected = IllegalStateException.class)
-	public void Áßº¹_È¸¿ø_Á¦¿Ü() throws Exception {
+	public void ì¤‘ë³µ_íšŒì›_ì œì™¸() throws Exception {
 		// fail("Not yet implemented");
 		Member member1 = new Member();
 		member1.setName("kim1");
@@ -55,7 +55,7 @@ public class MemberServiceTest {
 		memberService.join(member1);
 		memberService.join(member2);
 
-		fail("¿¹¿Ü°¡ ¹ß»ıÇØ¾ß ÇÑ´Ù.");
+		fail("ì˜ˆì™¸ê°€ ë°œìƒí•´ì•¼ í•œë‹¤.");
 	}
 
 }

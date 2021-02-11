@@ -9,6 +9,6 @@ import lombok.Setter;
 public class OrderSearch {
 
 	private String memberName;
-	private OrderStatus orderStatus;// ÁÖ¹® »óÅÂ
+	private OrderStatus orderStatus;// ì£¼ë¬¸ ìƒíƒœ
 
 }
