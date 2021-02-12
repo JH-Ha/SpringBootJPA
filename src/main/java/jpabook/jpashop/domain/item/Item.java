@@ -35,13 +35,13 @@ public abstract class Item {
 	@ManyToMany(mappedBy = "items")
 	private List<Category> categories = new ArrayList<>();
 
-	// ==ºñÁî´Ï½º ·ÎÁ÷==//
+	// ==ë¹„ì¦ˆë‹ˆìŠ¤ ë¡œì§==//
 	public void addStock(int quantity) {
 		this.stockQuantity += quantity;
 	}
 
 	/*
-	 * stock °¨¼Ò
+	 * stock ê°ì†Œ
 	 */
 	public void removeStock(int quantity) {
 		int restStock = this.stockQuantity - quantity;
