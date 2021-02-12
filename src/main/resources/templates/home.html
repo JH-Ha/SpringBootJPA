@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-layout:decorate="~{layout/layout.html}">
+	layout:decorate="~{layout/layout.html}">
 <head>
 <meta charset="UTF-8">
 <title>Hello</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body layout:fragment="content">
-<div class="container">
+
 	<div class="jumbotron">
 		<h1>HELLO SHOP</h1>
 		<p class="lead">회원 기능</p>
 		<p>
-			<a class="btn btn-lg btn-secondary" href="/members/new">회원가입</a>
-			<a class="btn btn-lg btn-secondary" href="/members">회원 목록</a>
+			<a class="btn btn-lg btn-secondary" href="/members/new">회원가입</a> <a
+				class="btn btn-lg btn-secondary" href="/members">회원 목록</a>
 		</p>
 		<p class="lead">상품 기능</p>
 		<p>
-			<a class="btn btn-lg btn-secondary" href="/items/new">상품 등록</a>
-			<a class="btn btn-lg btn-secondary" href="/items">상품 목록</a>
+			<a class="btn btn-lg btn-dark" href="/items/new">상품 등록</a> <a
+				class="btn btn-lg btn-dark" href="/items">상품 목록</a>
 		</p>
 		<p class="lead">주문 기능</p>
 		<p>
-			<a class="btn btn-lg btn-secondary" href="/order">상품 주문</a>
-			<a class="btn btn-lg btn-secondary" href="/orders">주문 내역</a>
+			<a class="btn btn-lg btn-info" href="/order">상품 주문</a> <a
+				class="btn btn-lg btn-info" href="/orders">주문 내역</a>
 		</p>
 	</div>
-</div>
+
 </body>
 </html>

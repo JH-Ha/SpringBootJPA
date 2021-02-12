@@ -4,11 +4,13 @@ xmlns:th="http://www.thymeleaf.org"
 xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head th:replace="fragments/header"></head>
 <body>
+<div class="container">
   <div th:replace="fragments/bodyHeader :: bodyHeader"></div>
 	
   <section layout:fragment="content">
     <p>Page content goes here</p>
   </section>
   <div th:replace="fragments/footer :: footer"></div>
+</div>
 </body>
 </html>
