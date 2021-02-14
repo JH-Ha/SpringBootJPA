@@ -36,7 +36,7 @@ public class OrderItem {
 	private int orderPrice;
 	private int count;
 
-	// ==»ı¼º ¸Ş¼­µå==//
+	// ì˜¤ë” ì•„ì´í…œ ìƒì„±
 	public static OrderItem createOrderItem(Item item, int orderPrice, int count) {
 		OrderItem orderItem = new OrderItem();
 		orderItem.setItem(item);
@@ -47,7 +47,7 @@ public class OrderItem {
 		return orderItem;
 	}
 
-	// Àç°í ¼ö·®À» ¿øº¹ÇØÁØ´Ù
+	// ì£¼ë¬¸ ì·¨ì†Œ
 	public void cancel() {
 		getItem().addStock(count);
 	}

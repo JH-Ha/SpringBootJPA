@@ -45,9 +45,9 @@ public class Order {
 	private LocalDateTime orderDate;
 
 	@Enumerated(EnumType.STRING)
-	private OrderStatus status; // ÁÖ¹® »óÅÂ [ORDER, CANCEL]
+	private OrderStatus status; // ì˜¤ë” ì£¼ë¬¸ìƒíƒœ [ORDER, CANCEL]
 
-	// ==¿¬°ü°ü°è ¸Ş¼­µå==//
+	// ==ë¹„ì§€ë‹ˆìŠ¤ ë¡œì§ ==//
 	public void setMember(Member member) {
 		this.member = member;
 		member.getOrders().add(this);
@@ -63,7 +63,7 @@ public class Order {
 		delivery.setOrder(this);
 	}
 
-	// ==»ı¼º ¸Ş¼­µå==//
+	// ì£¼ë¬¸ ìƒì„± //
 	public static Order createOrder(Member member, Delivery delivery, OrderItem... orderItems) {
 		Order order = new Order();
 		order.setMember(member);
@@ -84,7 +84,7 @@ public class Order {
 	 */
 	public void cancel() {
 		if (delivery.getStatus() == DeliveryStatus.COMP) {
-			throw new IllegalStateException("ÀÌ¹Ì ¹è¼Û¿Ï·áµÈ »óÇ°Àº Ãë¼Ò°¡ ºÒ°¡");
+			throw new IllegalStateException("ì™„ë£Œëœ ì£¼ë¬¸ì€ ì·¨ì†Œí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 		}
 		this.setStatus(OrderStatus.CANCEL);
 		for (OrderItem orderItem : orderItems) {
@@ -93,7 +93,7 @@ public class Order {
 	}
 
 	/*
-	 * ÀüÃ¼ ÁÖ¹® °¡°İ Á¶È¸
+	 * ì´í•© ê³„ì‚°
 	 */
 	public int getTotalPrice() {
 
