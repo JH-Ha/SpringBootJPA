@@ -1,5 +1,6 @@
 package jpabook.jpashop.service;
 
+import jpabook.jpashop.repository.OrderSearch;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +13,8 @@ import jpabook.jpashop.repository.ItemRepository;
 import jpabook.jpashop.repository.MemberRepository;
 import jpabook.jpashop.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
+
+import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
@@ -49,6 +52,7 @@ public class OrderService {
 	}
 
 	// 검색
-	// public List<Order> findorders(OrderSearch orderSearch) {
-	// }
+	public List<Order> findorders(OrderSearch orderSearch) {
+		return orderRepository.findAll(orderSearch);
+	}
 }
