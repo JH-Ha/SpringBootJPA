@@ -5,15 +5,18 @@ import javax.persistence.EntityManager;
 import com.querydsl.core.BooleanBuilder;
 
 import com.querydsl.jpa.impl.JPAQuery;
+import jpabook.jpashop.api.OrderSimpleApiController;
+import jpabook.jpashop.domain.Address;
+import jpabook.jpashop.domain.OrderStatus;
 import jpabook.jpashop.domain.QOrder;
-import org.springframework.data.jpa.repository.query.JpaQueryCreator;
+import lombok.Data;
 import org.springframework.stereotype.Repository;
 
 import jpabook.jpashop.domain.Order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.util.StringUtils;
 
-import java.util.ArrayList;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
@@ -63,4 +66,11 @@ public class OrderRepository {
                 + " join fetch o.delivery d", Order.class
         ).getResultList();
     }
+
+    public List<OrderSimpleQueryDto> findOrderDtos() {
+        return em.createQuery("select new jpabook.jpashop.repository.OrderSimpleQueryDto(o.id, m.name, o.orderDate, o.status, d.address) from Order o"
+        + " join o.member m"
+        + " join o.delivery d", OrderSimpleQueryDto.class).getResultList();
+    }
+
 }
