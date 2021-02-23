@@ -5,18 +5,13 @@ import javax.persistence.EntityManager;
 import com.querydsl.core.BooleanBuilder;
 
 import com.querydsl.jpa.impl.JPAQuery;
-import jpabook.jpashop.api.OrderSimpleApiController;
-import jpabook.jpashop.domain.Address;
-import jpabook.jpashop.domain.OrderStatus;
 import jpabook.jpashop.domain.QOrder;
-import lombok.Data;
 import org.springframework.stereotype.Repository;
 
 import jpabook.jpashop.domain.Order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.util.StringUtils;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
@@ -59,12 +54,14 @@ public class OrderRepository {
         return orders;
     }
 
-    public List<Order> findAllWithMemberDelivery() {
+    public List<Order> findAllWithMemberDelivery(int offset, int limit) {
         return em.createQuery(
                 "select o from Order o"
                 + " join fetch o.member m"
                 + " join fetch o.delivery d", Order.class
-        ).getResultList();
+        ).setFirstResult(offset)
+        .setMaxResults(limit)
+        .getResultList();
     }
 
     public List<OrderSimpleQueryDto> findOrderDtos() {
