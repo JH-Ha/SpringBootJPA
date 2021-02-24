@@ -6,6 +6,8 @@ import jpabook.jpashop.domain.OrderItem;
 import jpabook.jpashop.domain.OrderStatus;
 import jpabook.jpashop.repository.OrderRepository;
 import jpabook.jpashop.repository.OrderSearch;
+import jpabook.jpashop.repository.order.query.OrderQueryDto;
+import jpabook.jpashop.repository.order.query.OrderQueryRepository;
 import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,6 +23,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class OrderApiController {
     private final OrderRepository orderRepository;
+    private final OrderQueryRepository orderQueryRepository;
 
     //entity를 직접 노출하면 안된다.
     @GetMapping("/api/v1/orders")
@@ -47,6 +49,10 @@ public class OrderApiController {
         List<Order> orders = orderRepository.findAllWithMemberDelivery(offset, limit);
         return orders.stream().map(o -> new OrderDto(o))
                 .collect(Collectors.toList());
+    }
+    @GetMapping("/api/v4/orders")
+    public List<OrderQueryDto> ordersV4(){
+        return orderQueryRepository.findOrderQueryDtos();
     }
     @Data
     static class OrderDto {
