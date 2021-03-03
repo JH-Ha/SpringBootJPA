@@ -22,13 +22,13 @@ import java.util.List;
 public class OrderService {
 
 	private final OrderRepository orderRepository;
-	private final MemberRepository memberRepository;
+	private final MemberRepository memberRepositoryOld;
 	private final ItemRepository itemRepository;
 	// 주문
 
 	@Transactional
 	public Long order(Long memberId, Long itemId, int count) {
-		Member member = memberRepository.findOne(memberId);
+		Member member = memberRepositoryOld.findById(memberId).get();
 		Item item = itemRepository.findOne(itemId);
 
 		Delivery delivery = new Delivery();
